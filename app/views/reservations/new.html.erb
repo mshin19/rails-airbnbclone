@@ -1,0 +1,14 @@
+<div class="container border rounded p-3">
+  <h1>Create a Reservation</h1>
+  <%= simple_form_for [@flat, @reservation] do |f| %>
+  
+  <div class="form-inputs">
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
