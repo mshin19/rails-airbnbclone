@@ -2,6 +2,7 @@
   <div class="container">
     <h1>Flats</h1>
     <p>Authentic experiences</p>
+    <%= link_to 'Add your flat', new_flat_path, class: "btn btn-primary" %>
   </div>
 </div>
 
@@ -10,6 +11,9 @@
     <div class="card-product">
       <div class="card-product-infos">
         <h2><%= link_to flat.name, flat_path(flat) %></h2>
+        <% if policy(flat).edit? %>
+        <h2><%= link_to 'Edit Flat', edit_flat_path(flat), class: "btn btn-primary" %></h2>
+        <% end %>
       </div>
     </div>
   <% end %>
