@@ -1,5 +1,3 @@
-<h1><%= @flat.name %></h1>
-
 <h2><%= @flat.name %></h2>
 <p><%= @flat.location %></p>
 <p>$<%= @flat.price %></p>
@@ -14,5 +12,10 @@
 
 <br>
 <%= link_to 'Make a reservation', new_flat_reservation_path(@flat), class: "btn btn-primary" %>
-<%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "btn btn-primary" %>
+<% if policy(@flat).edit? %>
+<%= link_to 'Edit your Flat', edit_flat_path(@flat), class: "btn btn-primary" %>
+<% end %>
+<% if policy(@flat).destroy? %>
+<%= link_to 'Delete Flat', flats_path(@flat), method: :delete, class: "btn btn-primary" %>
+<% end %>
 <%= link_to 'Go back', flats_path, class: "btn btn-primary" %>
