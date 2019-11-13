@@ -1,1 +1,18 @@
 <h1><%= @flat.name %></h1>
+
+<h2><%= @flat.name %></h2>
+<p><%= @flat.location %></p>
+<p>$<%= @flat.price %></p>
+<p>Not available in the following dates:</p>
+<ul>
+  <li>
+    <% @flat.reservations.each do |reservation| %>
+    <p><%= reservation.start_date %> to <%= reservation.end_date %></p>
+    <% end %>
+  </li>
+</ul>
+
+<br>
+<%= link_to 'Make a reservation', new_flat_reservation_path(@flat), class: "btn btn-primary" %>
+<%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "btn btn-primary" %>
+<%= link_to 'Go back', flats_path, class: "btn btn-primary" %>
