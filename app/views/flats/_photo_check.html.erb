@@ -1,0 +1,5 @@
+<% if flat.photo.file.nil? %>
+  <img src='https://309w5s255371fs4df2vftgbl-wpengine.netdna-ssl.com/wp-content/uploads/2017/09/placeholder.jpg' />   
+<% else %>
+  <img src="<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill %>" />
+<% end %>
