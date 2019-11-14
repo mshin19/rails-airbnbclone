@@ -11,6 +11,7 @@
   <div class="cards">
     <% @flats.each do |flat| %>
       <div class="card-product">
+          <%= render 'photo_check', flat: flat %>
         <div class="card-product-infos">
           <h2><%= link_to flat.name, flat_path(flat) %></h2>
           <% if policy(flat).edit? %>
