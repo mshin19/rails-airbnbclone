@@ -17,6 +17,6 @@
 <%= link_to 'Edit your Flat', edit_flat_path(@flat), class: "btn btn-primary" %>
 <% end %>
 <% if policy(@flat).destroy? %>
-<%= link_to 'Delete Flat', flats_path(@flat), method: :delete, class: "btn btn-primary" %>
+<%= link_to 'Delete Flat', flat_path(@flat), method: :delete, class: "btn btn-primary" %>
 <% end %>
 <%= link_to 'Go back', flats_path, class: "btn btn-primary" %>

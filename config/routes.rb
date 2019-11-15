@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'flats#index'
   resources :flats do
     resources :reservations, shallow: true #shortcut para sacar show, edit update y destroy de este nest
   end
