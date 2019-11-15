@@ -25,6 +25,10 @@ class FlatPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def search?
+    return true
+  end
+
   private
 
   def user_is_owner?
