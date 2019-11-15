@@ -1,8 +1,6 @@
 class FlatsController < ApplicationController
   def index
-    # @flats = Flat.all
     @flats = policy_scope(Flat).geocoded #returns flats with coordinates
-
     @markers = @flats.map do |flat|
       {
         lat: flat.latitude,
@@ -10,6 +8,11 @@ class FlatsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
       }
     end
+  end
+  
+  def search
+    @flats_filtered = Flat.search_by_name_and_address(params[:query])
+    authorize @flats_filtered
   end
 
   def new
